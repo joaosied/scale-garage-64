@@ -93,16 +93,16 @@ values ('fotos', 'fotos', true)
 on conflict (id) do nothing;
 
 -- ---------- dados iniciais ----------
-insert into public.marcas (nome, cor_fundo, ordem) values
-  ('Hot Wheels', '#F39C2C', 1),
-  ('Greenlight', '#2F8E3F', 2),
-  ('Mini GT', '#BDBDBD', 3),
-  ('Matchbox', '#E8642B', 4),
-  ('Trends Hobby', '#1E3C8F', 5),
-  ('Mini Station', '#A8E2EA', 6),
-  ('Pop Race', '#E23B30', 7),
-  ('Kaido House', '#FFFFFF', 8)
-on conflict (nome) do nothing;
+insert into public.marcas (nome, logo_url, cor_fundo, ordem) values
+  ('Hot Wheels', '/marcas/hot-wheels.png', '#F39C2C', 1),
+  ('Greenlight', '/marcas/greenlight.png', '#2F8E3F', 2),
+  ('Mini GT', '/marcas/mini-gt.png', '#BDBDBD', 3),
+  ('Matchbox', '/marcas/matchbox.png', '#E8642B', 4),
+  ('Trends Hobby', '/marcas/trends-hobby.png', '#1E3C8F', 5),
+  ('Mini Station', '/marcas/mini-station.png', '#A8E2EA', 6),
+  ('Pop Race', '/marcas/pop-race.png', '#E23B30', 7),
+  ('Kaido House', '/marcas/kaido-house.png', '#FFFFFF', 8)
+on conflict (nome) do update set logo_url = excluded.logo_url where public.marcas.logo_url is null;
 
 insert into public.configuracoes (id, instagram, desde, sobre, importacao_pt, importacao_en)
 values (1, 'scale_garage64', 2026, '[{"t_pt":"Uma garagem em escala 1:64","p_pt":"Miniaturas de colecionador escolhidas uma a uma. Parte delas está à venda e parte é a nossa coleção pessoal, que fica aqui só pra mostrar.","t_en":"A garage in 1:64 scale","p_en":"Collector miniatures picked one by one. Some of them are for sale and some are our personal collection, here just to show."},{"t_pt":"Direto do Japão, China e EUA","p_pt":"A gente importa as miniaturas direto de fora. Não achou o modelo que procura na vitrine? Fala com a gente que a gente busca.","t_en":"Straight from Japan, China and the USA","p_en":"We import our miniatures directly from abroad. Can''t find the model you want in the showcase? Message us and we''ll hunt it down."},{"t_pt":"Escolheu? Chama no Instagram","p_pt":"Toda venda é combinada direto com a gente: valor, frete e prazo. Sem carrinho e sem cadastro.","t_en":"Found it? Message us on Instagram","p_en":"Every sale is arranged directly with us: price, shipping and timing. No cart and no sign-up."}]'::jsonb,

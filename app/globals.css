@@ -900,9 +900,14 @@ a.pc-btn:hover {
   padding: 10px 14px;
   overflow: hidden;
 }
+.btile:has(img) {
+  padding: 8% 10%;
+}
 .btile img {
+  display: block;
   width: 100%;
   height: 100%;
+  min-height: 0;
   object-fit: contain;
 }
 .btile span {
