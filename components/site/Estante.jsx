@@ -102,11 +102,7 @@ export default function Estante({ t, lang, items, ig, onExplore }) {
                 ))}
                 <div className="slot free" aria-hidden="true">
                   <span className="car-box">
-                    <span className="v">
-                      {t.estante.free[0]}
-                      <br />
-                      {t.estante.free[1]}
-                    </span>
+                    <span className="v">{t.estante.free}</span>
                   </span>
                 </div>
               </div>

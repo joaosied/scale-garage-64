@@ -123,5 +123,5 @@ select * from (values
 where not exists (select 1 from public.miniaturas);
 
 update public.configuracoes
-set hero_id = (select id from public.miniaturas order by numero_catalogo limit 1)
+set hero_id = (select id from public.miniaturas where imagem_url = '/seed/targa.webp' limit 1)
 where id = 1 and hero_id is null;
